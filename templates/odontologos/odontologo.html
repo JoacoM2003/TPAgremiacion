@@ -1,0 +1,42 @@
+{% include 'header_v13.html' %}
+
+
+<fieldset>
+    <legend>Odontologo</legend>
+    <p>DNI: {{odontologo.dni}}</p>
+    <p>Matrícula: {{odontologo.matricula}}</p>
+    <p>Nombre: {{odontologo.nombre}}</p>
+    <p>Apellido: {{odontologo.apellido}}</p>
+    <p>Correo: {{odontologo.correo}}</p>
+</fieldset>
+
+<hr>
+
+<p>Direcciones</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Provincia</th>
+        <th>Localidad</th>
+        <th>Dirección</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for direccion in direcciones%}  
+      <tr>
+        <td class="ordenartd">{{provincia.nombre}}</td>
+        <td class="ordenartd">{{localidad.nombre}}</td>
+        <td class="ordenartd">{{direccion.calle}} {{direccion.numero}}</td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+    <div class="form-group">
+        <a class="btn btn-warning" href="/agregarDireccion/{{odontologo.id}}">Agregar Direccion</a>
+    </div>
+</table>
+
+
+
+
+{% include 'footer_v13.html' %}

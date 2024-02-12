@@ -1,0 +1,42 @@
+{% include 'header_v13.html' %}
+<br />
+<a href="{{ url_for('create') }}" class="btn btn-success">
+  Ingresar nuevo Afiliad@
+</a>
+<br />
+<br />
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>DNI</th>
+      <th>Matrícula</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Correo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for odontologo in odontologos %}
+    <tr>
+      <td class="ordenartd">{{odontologo.id}}</td>
+      <!-- <td class="ordenartd">
+        <img class="img-thumbnail" width="100" src="uploads/{{odontologo[4]}}" alt="">
+      </td> -->
+      <td class="ordenartd">{{odontologo.dni}}</td>
+      <td class="ordenartd">{{odontologo.matricula}}</td>
+      <td class="ordenartd">{{odontologo.nombre}}</td>
+      <td class="ordenartd">{{odontologo.apellido}}</td>
+      <td class="ordenartd">{{odontologo.correo}}</td>
+
+      <td class="ordenartd">
+        <a class="btn btn-warning" href="/odontologo/{{odontologo.id}}">Entrar</a>
+        <!-- <a class="btn btn-warning" href="/modify/{{odontologo.id}}">Editar</a> -->
+        <a id="btnConfirm" class="btn btn-danger" href="/delete/{{odontologo.id}}">Borrar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% include 'footer_v13.html' %}

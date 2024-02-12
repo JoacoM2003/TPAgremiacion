@@ -1,0 +1,43 @@
+{% include 'header_v13.html' %}
+
+<form method="post" action="/update" enctype="multipart/form-data">
+
+  <div class="card">
+    <div class="card-header"># Esto de modificar afiliad@ es mio
+      Modificar Afiliad@
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Datos</h5>
+      <p class="card-text">
+        <label>ID</label>
+        <input class="hidden" type="text" value="{{ odontologo[0] }}" name="txtID" id="txtID" readonly>
+        <div class="form-group">
+          <label for="txtDNI">DNI</label>
+          <input id="txtDNI" class="form-control" type="text" name="txtDNI" value="{{ odontologo[1] }}">
+        </div>
+        <div class="form-group">
+          <label for="txtMatricula">Matricula</label>
+          <input id="txtMatricula" class="form-control" type="text" name="txtMatricula" value="{{ odontologo[2] }}">
+        </div>
+        <div class="form-group">
+          <label for="txtNombre">Nombre</label>
+          <input id="txtNombre" class="form-control" type="text" name="txtNombre" value="{{ odontologo[3] }}">
+        </div>
+        <div class="form-group">
+          <label for="txtApellido">Apellido</label>
+          <input id="txtApellido" class="form-control" type="text" name="txtApellido" value="{{ odontologo[4] }}">
+        </div>
+        <div class="form-group">
+          <label for="txtCorreo">Email</label>
+          <input id="txtCorreo" class="form-control" type="text" name="txtCorreo" value="{{ odontologo[5] }}">
+        </div>
+        <div class="form-group">
+          <input class="btn btn-success" type="submit" value="Modificar" />
+          <a class="btn btn-primary" href="{{ url_for('index') }}">Regresar</a>
+        </div>
+      </p>
+    </div>
+  </div>
+
+</form>
+{% include 'footer_v13.html' %}

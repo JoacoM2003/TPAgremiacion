@@ -1,0 +1,57 @@
+{% include 'header_v13.html' %}
+
+{% with messages=get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-danger" role="alert">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<br/>
+<form method="post" action="/guardarDireccion" enctype="multipart/form-data">
+  <div class="card">
+    <div class="card-header">
+      Ingresar Dirección
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Datos</h5>
+      <p class="card-text">
+        <div class="form-group">
+          <label for="txtProvincia">Provincia</label>
+          <input id="txtProvincia" class="form-control" type="text" name="txtProvincia">
+        </div>
+        <div class="form-group">
+          <label for="txtLocalidad">Localidad</label>
+          <input id="txtLocalidad" class="form-control" type="text" name="txtLocalidad">
+        </div>
+        <div class="form-group">
+          <label for="txtID">ID Odontologo</label>
+          <input id="txtID" class="form-control" type="text" name="txtID" value="{{odontologo.id}}" readonly>
+        </div>
+        <div class="form-group">
+          <label for="txtCalle">Calle</label>
+          <input id="txtCalle" class="form-control" type="text" name="txtCalle">
+        </div>
+        <div class="form-group">
+          <label for="txtNumero">Número</label>
+          <input id="txtNumero" class="form-control" type="text" name="txtNumero">
+        </div>
+        <div class="form-group">
+          <label for="txtDepartamento">Departamento (Opcional)</label>
+          <input id="txtDepartamento" class="form-control" type="text" name="txtDepartamento">
+        </div>
+
+
+
+        <div class="form-group">
+          <input class="btn btn-success" type="submit" value="Agregar" />
+          <a class="btn btn-primary" href="{{ url_for('create') }}">Regresar</a>
+        </div>
+      </p>
+    </div>
+  </div>
+</form>
+{% include 'footer_v13.html' %}
